@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <title>Repuesto</title>
+</head>
+<body>
+    <h1>Repuestos</h1>
+</body>
+<body class="container m-5">
+    <div class="alert alert-success display-1">Caracteristicas repuestos</div>
+    {%if Repuesto%}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Motores</th>
+                <th>Neumaticos</th>
+                <th>Llantas</th>
+                <th>Aceites</th>
+                <th>Baterias</th>
+                <th>Suspensiones</th>
+                <th>autos</th>
+                <th>tiendas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for re in Repuesto%}
+            <tr>
+                <td scope="row">{{re.id}}</td>
+                <td>{{re.motores}}</td>
+                <td>{{re.neumaticos}}</td>
+                <td>{{re.llantas}}</td>
+                <td>{{re.aceites}}</td>
+                <td>{{re.baterias}}</td>
+                <td>{{re.suspensiones}}</td>
+                <td>{{re.autos}}</td>
+                <td>{{re.tiendas}}</td>
+
+                <td><a href="/actualizarRepuesto/{{ re.id }}"class="btn btn-success btn-sm"><i class="bi bi-pencil">Actualizar</i></td>
+                <td><a href="/eliminarRepuesto/{{ re.id }}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i>Eliminar</td>
+
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="alert alert-info">No hay repuestos registrados</div>
+    {% endif %}
+    <a href="/registroR" class="btn btn-success float-end">Agregar Repuesto</a>
+
+    
+</body>
+</html>
